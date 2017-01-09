@@ -26,8 +26,19 @@ def sorting_asc(sortlist):
         a[idxMin] = a[i]
         a[i] = tmp
     return a
+def sorting_desc(sortlist):
+    a = sortlist
+    for i in range(len(a)):
+        idxMax = i
+        for j in range(i+1, len(a)):
+            if a[j] > a[idxMax]:
+                idxMax = j
+        tmp = a[idxMax]
+        a[idxMax] = a[i]
+        a[i] = tmp
+    return a
 while True:
-    print('Do you want to cintunue? Yes/No')
+    print('Do you want to continue? Yes/No')
     contin = input() 
     if contin in ['Yes', 'yes', 'y', 'Y']:
         numnum()
@@ -42,10 +53,6 @@ while True:
             print(sorting_asc(list_even))
             print(sorting_asc(list_odd))
         elif sort in ['desc', 'Desc']:
-            sorting_asc(list_even)
-            sorting_asc(list_odd)
-            list_even.reverse()
-            list_odd.reverse()
-            print(list_even)
-            print(list_odd)
+            print(sorting_desc(list_even))
+            print(sorting_desc(list_odd))
         break
